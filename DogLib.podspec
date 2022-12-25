@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'git@github.com:stalikoff/Dogs.git', :tag => s.version.to_s }
   s.swift_version = '5.0'
   s.ios.deployment_target = '12.0'
-  s.source_files = 'DogLib/**/*.swift'
+  s.source_files = 'DogLib/Source/**/*.swift'
   s.resources = 'DogLib/**/*.xcdatamodeld'
   s.dependency 'Alamofire', '~> 5.6'
 
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.test_spec 'UnitTests' do |test_spec|
     test_spec.source_files = 'DogLib/UnitTests/**/*'
     test_spec.dependency 'Nimble', '~> 10.0.0'
-    test_spec.dependency 'Quick', '~> 2.2.0'
+    test_spec.dependency 'Quick', '~> 5.0.1'
   end
 
 end

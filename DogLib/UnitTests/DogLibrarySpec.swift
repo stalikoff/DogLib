@@ -7,6 +7,7 @@
 @testable import DogLib
 import Quick
 import Nimble
+//import quic
 
 class DogLibrarySpec: QuickSpec {
     override func spec() {
@@ -14,10 +15,23 @@ class DogLibrarySpec: QuickSpec {
             var library: DogLibrary!
 
             beforeEach {
-              library = DogLibrary()
+                library = DogLibrary()
+                library.getNextImage { image in
+
+                }
             }
 
             it("test next image") {
+                var imageTest: UIImage?
+
+                library.getPreviousImage { image, isPrevious in
+                    imageTest = image
+                }
+
+                it("previous image should not be nil") {
+                    expect(imageTest != nil)
+                }
+
 
 //                library.getNextImage { <#UIImage?#> in
 //                    <#code#>
@@ -36,7 +50,8 @@ class DogLibrarySpec: QuickSpec {
         }
     }
 
-//    func testStart() {
-//        print("")
-//    }
+    func testStart() {
+        print("")
+    }
+
 }
