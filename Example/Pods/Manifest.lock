@@ -1,16 +1,27 @@
 PODS:
-  - DogLib (0.1.0)
+  - Alamofire (5.6.4)
+  - DogLib (0.0.1):
+    - Alamofire (~> 5.6)
+  - DogLib/UnitTests (0.0.1):
+    - Alamofire (~> 5.6)
+    - Nimble (~> 10.0.0)
+    - Quick (~> 2.2.0)
   - Nimble (10.0.0)
+  - ProgressHUD (2.70)
   - Quick (2.2.1)
 
 DEPENDENCIES:
   - DogLib (from `../`)
+  - DogLib/UnitTests (from `../`)
   - Nimble (~> 10.0.0)
+  - ProgressHUD
   - Quick (~> 2.2.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Nimble
+    - ProgressHUD
     - Quick
 
 EXTERNAL SOURCES:
@@ -18,10 +29,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DogLib: 73f99875cb7bd559fb7bb986114869b6cb4a17fe
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  DogLib: 46a974d50525e3c38413731d8b49acf480200f44
   Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
+  ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
 
-PODFILE CHECKSUM: d7382a9ae52ab1d2b3af929fff1333088cb4ef2b
+PODFILE CHECKSUM: 1261c8ee35c97182afcaca9aab1cde2f0b437116
 
 COCOAPODS: 1.11.3

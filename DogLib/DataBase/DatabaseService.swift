@@ -8,8 +8,8 @@ import UIKit
 import CoreData
 
 private enum Constants {
-    static let databaseName = "CleverTestCoreData"
-    static let bundleName = "CleverDog"
+    static let databaseName = "CoreDataModel"
+    static let bundleName = "DogLib"
     static let entityName = "ImageEntity"
 }
 
@@ -39,21 +39,19 @@ final class DatabaseService {
 // MARK: - DatabaseManager
 extension DatabaseService: DatabaseServiceProtocol {
     func saveImageDatas(_ imageDataArray: [Data], startIndex: Int) {
-//        DispatchQueue.main.async {
-            guard let managedObjectContext = self.managedObjectContext else { return }
+        guard let managedObjectContext = self.managedObjectContext else { return }
 
-            for i in 0 ... imageDataArray.count - 1  {
-                let imageEntity = ImageEntity(context: managedObjectContext)
-                imageEntity.imageData = imageDataArray[i]
-                imageEntity.index = Int64(startIndex + i)
-            }
+        for i in 0 ... imageDataArray.count - 1  {
+            let imageEntity = ImageEntity(context: managedObjectContext)
+            imageEntity.imageData = imageDataArray[i]
+            imageEntity.index = Int64(startIndex + i)
+        }
 
-            do {
-              try managedObjectContext.save()
-            } catch let error as NSError {
-              print("Could not save. \(error), \(error.userInfo)")
-            }
-//        }
+        do {
+            try managedObjectContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
 
     func removeAll() {
@@ -67,50 +65,38 @@ extension DatabaseService: DatabaseServiceProtocol {
     }
 
     func saveImageData(_ imageData: Data, atIndex: Int) {
-//        persistentContainer.per
-//        persistentContainer?.performBackgroundTask({ context in
-//
-//        })
+        guard let managedObjectContext = self.managedObjectContext //,
+        else { return }
 
-//        DispatchQueue.main.async {
+        let imageEntity = ImageEntity(context: managedObjectContext)
 
-            guard let managedObjectContext = self.managedObjectContext //,
-//                  let entityDescription = NSEntityDescription.entity(forEntityName: Constants.entityName, in: managedObjectContext),
-//                  let imageEntity = NSManagedObject(entity: entityDescription, insertInto: managedObjectContext) as? ImageEntity
-            else { return }
+        imageEntity.imageData = imageData
+        imageEntity.index = Int64(atIndex)
 
-            let imageEntity = ImageEntity(context: managedObjectContext)
-
-            imageEntity.imageData = imageData
-            imageEntity.index = Int64(atIndex)
-
-            do {
-              try managedObjectContext.save()
-            } catch let error as NSError {
-              print("Could not save. \(error), \(error.userInfo)")
-            }
-//        }
+        do {
+            try managedObjectContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
 
     func getImage(atIndex: Int, completion: @escaping (Data?) -> ()) {
-//        DispatchQueue.main.async {
-            let request = NSFetchRequest<ImageEntity>()
-            guard let managedObjectContext = self.managedObjectContext,
-                  let entityDescription = NSEntityDescription.entity(forEntityName: Constants.entityName, in: managedObjectContext) else {
-                completion(nil)
-                return
-            }
-            request.entity = entityDescription
-            request.predicate = NSPredicate(format: "index = %i", atIndex)
+        let request = NSFetchRequest<ImageEntity>()
+        guard let managedObjectContext = self.managedObjectContext,
+              let entityDescription = NSEntityDescription.entity(forEntityName: Constants.entityName, in: managedObjectContext) else {
+            completion(nil)
+            return
+        }
+        request.entity = entityDescription
+        request.predicate = NSPredicate(format: "index = %i", atIndex)
 
-            do {
-                let objects = try managedObjectContext.fetch(request)
-                let imageData = objects.first?.imageData
-                completion(imageData)
-            } catch let error as NSError {
-                print("Could not fetch \(error), \(error.userInfo)")
-                completion(nil)
-            }
-//        }
+        do {
+            let objects = try managedObjectContext.fetch(request)
+            let imageData = objects.first?.imageData
+            completion(imageData)
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+            completion(nil)
+        }
     }
 }

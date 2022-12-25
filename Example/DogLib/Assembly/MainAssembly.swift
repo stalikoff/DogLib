@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import CleverDog
+import DogLib
 
 final class MainAssembly {
     static func createModule() -> UIViewController {

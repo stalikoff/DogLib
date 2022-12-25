@@ -1,9 +1,8 @@
 {
   "name": "DogLib",
-  "version": "0.1.0",
-  "summary": "A short description of DogLib.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/Oleg Vasilev/DogLib",
+  "version": "0.0.1",
+  "homepage": "https://github.com/stalikoff/Dogs",
+  "summary": "Library to load and cache random dog images from public API",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +11,34 @@
     "Oleg Vasilev": "o.vasilev@danycom.ru"
   },
   "source": {
-    "git": "https://github.com/Oleg Vasilev/DogLib.git",
-    "tag": "0.1.0"
+    "git": "git@github.com:stalikoff/Dogs.git",
+    "tag": "0.0.1"
   },
+  "swift_versions": "5.0",
   "platforms": {
-    "ios": "10.0"
+    "ios": "12.0"
   },
-  "source_files": "DogLib/Classes/**/*"
+  "source_files": "DogLib/**/*.swift",
+  "resources": "DogLib/**/*.xcdatamodeld",
+  "dependencies": {
+    "Alamofire": [
+      "~> 5.6"
+    ]
+  },
+  "testspecs": [
+    {
+      "name": "UnitTests",
+      "test_type": "unit",
+      "source_files": "DogLib/UnitTests/**/*",
+      "dependencies": {
+        "Nimble": [
+          "~> 10.0.0"
+        ],
+        "Quick": [
+          "~> 2.2.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
 }
