@@ -3,7 +3,8 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'DogLib_Example' do
-  pod 'DogLib', :path => '../'
+  pod 'DogLib', :path => '../', :testspecs => ['UnitTests']
+  pod 'ProgressHUD'
 
   target 'DogLib_Tests' do
     inherit! :search_paths

@@ -1,0 +1,27 @@
+PODS:
+  - DogLib (0.1.0)
+  - Nimble (10.0.0)
+  - Quick (2.2.1)
+
+DEPENDENCIES:
+  - DogLib (from `../`)
+  - Nimble (~> 10.0.0)
+  - Quick (~> 2.2.0)
+
+SPEC REPOS:
+  trunk:
+    - Nimble
+    - Quick
+
+EXTERNAL SOURCES:
+  DogLib:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DogLib: 73f99875cb7bd559fb7bb986114869b6cb4a17fe
+  Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
+  Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
+
+PODFILE CHECKSUM: d7382a9ae52ab1d2b3af929fff1333088cb4ef2b
+
+COCOAPODS: 1.11.3

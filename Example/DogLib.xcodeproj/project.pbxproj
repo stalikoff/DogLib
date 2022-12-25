@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		7CF70CA82958E77F007F8EDF /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70CA12958E77F007F8EDF /* MainAssembly.swift */; };
+		7CF70CA92958E77F007F8EDF /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70CA32958E77F007F8EDF /* MainViewProtocol.swift */; };
+		7CF70CAA2958E77F007F8EDF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70CA42958E77F007F8EDF /* MainViewController.swift */; };
+		7CF70CAB2958E77F007F8EDF /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70CA62958E77F007F8EDF /* MainPresenter.swift */; };
+		7CF70CAC2958E77F007F8EDF /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70CA72958E77F007F8EDF /* MainPresenterProtocol.swift */; };
 		9464C97CF66A4B7C86D020A9 /* Pods_DogLib_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE8F3421915093DF72BE82 /* Pods_DogLib_Tests.framework */; };
 		9BDCF8A0340DE952C0E594E3 /* Pods_DogLib_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4478D6997F72E7044BE210 /* Pods_DogLib_Example.framework */; };
 /* End PBXBuildFile section */
@@ -32,18 +35,21 @@
 		607FACD01AFB9204008FA782 /* DogLib_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogLib_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* DogLib_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogLib_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		65BE8F3421915093DF72BE82 /* Pods_DogLib_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogLib_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6792B6F833F66C52F96696C6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		6792B6F833F66C52F96696C6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		7A4478D6997F72E7044BE210 /* Pods_DogLib_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogLib_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		85F56F57FC27B253F03BE12F /* DogLib.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = DogLib.podspec; path = ../DogLib.podspec; sourceTree = "<group>"; };
-		B486F0CBEB4E6404D7B5F758 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		7CF70CA12958E77F007F8EDF /* MainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
+		7CF70CA32958E77F007F8EDF /* MainViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
+		7CF70CA42958E77F007F8EDF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7CF70CA62958E77F007F8EDF /* MainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		7CF70CA72958E77F007F8EDF /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
+		85F56F57FC27B253F03BE12F /* DogLib.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DogLib.podspec; path = ../DogLib.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B486F0CBEB4E6404D7B5F758 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E196857369CEBA34E0DA77A0 /* Pods-DogLib_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogLib_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DogLib_Tests/Pods-DogLib_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E1D5D802FB1CA4153C58C14F /* Pods-DogLib_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogLib_Example.release.xcconfig"; path = "Target Support Files/Pods-DogLib_Example/Pods-DogLib_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E3C2D370BD35CABD159D4B0E /* Pods-DogLib_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogLib_Example.debug.xcconfig"; path = "Target Support Files/Pods-DogLib_Example/Pods-DogLib_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,7 +83,6 @@
 				E196857369CEBA34E0DA77A0 /* Pods-DogLib_Tests.debug.xcconfig */,
 				083A648873B7ADB4F5D81F54 /* Pods-DogLib_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -106,8 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				7CF70C9E2958E75D007F8EDF /* Source */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -149,6 +153,50 @@
 				6792B6F833F66C52F96696C6 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		7CF70C9E2958E75D007F8EDF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				7CF70C9F2958E76D007F8EDF /* MainModule */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		7CF70C9F2958E76D007F8EDF /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				7CF70CA52958E77F007F8EDF /* Presenter */,
+				7CF70CA22958E77F007F8EDF /* View */,
+				7CF70CA02958E77F007F8EDF /* Assembly */,
+			);
+			name = MainModule;
+			sourceTree = "<group>";
+		};
+		7CF70CA02958E77F007F8EDF /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				7CF70CA12958E77F007F8EDF /* MainAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		7CF70CA22958E77F007F8EDF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CF70CA32958E77F007F8EDF /* MainViewProtocol.swift */,
+				7CF70CA42958E77F007F8EDF /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7CF70CA52958E77F007F8EDF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				7CF70CA62958E77F007F8EDF /* MainPresenter.swift */,
+				7CF70CA72958E77F007F8EDF /* MainPresenterProtocol.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		C2AC253E2C282456BDD09771 /* Frameworks */ = {
@@ -228,6 +276,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -247,7 +296,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -352,8 +400,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				7CF70CAB2958E77F007F8EDF /* MainPresenter.swift in Sources */,
+				7CF70CA92958E77F007F8EDF /* MainViewProtocol.swift in Sources */,
+				7CF70CA82958E77F007F8EDF /* MainAssembly.swift in Sources */,
+				7CF70CAC2958E77F007F8EDF /* MainPresenterProtocol.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				7CF70CAA2958E77F007F8EDF /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,14 +428,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -440,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -486,7 +530,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -500,6 +544,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DogLib/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -515,6 +560,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DogLib/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";

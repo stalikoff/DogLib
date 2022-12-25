@@ -1,42 +1,23 @@
-#
-# Be sure to run `pod lib lint DogLib.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
 
 Pod::Spec.new do |s|
   s.name             = 'DogLib'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of DogLib.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/Oleg Vasilev/DogLib'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.version          = '0.0.1'
+  s.homepage         = 'https://github.com/stalikoff/Dogs'
+  s.summary          = 'Library to load and cache random dog images from public API'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Oleg Vasilev' => 'o.vasilev@danycom.ru' }
-  s.source           = { :git => 'https://github.com/Oleg Vasilev/DogLib.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'git@github.com:stalikoff/Dogs.git', :tag => s.version.to_s }
+  s.swift_version = '5.0'
+  s.ios.deployment_target = '12.0'
+  s.source_files = 'DogLib/**/*.swift'
+  s.resources = 'DogLib/**/*.xcdatamodeld'
+  s.dependency 'Alamofire', '~> 5.6'
 
-  s.ios.deployment_target = '10.0'
+# ------ tests ------
+  s.test_spec 'UnitTests' do |test_spec|
+    test_spec.source_files = 'DogLib/UnitTests/**/*'
+    test_spec.dependency 'Nimble', '~> 10.0.0'
+    test_spec.dependency 'Quick', '~> 2.2.0'
+  end
 
-  s.source_files = 'DogLib/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'DogLib' => ['DogLib/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

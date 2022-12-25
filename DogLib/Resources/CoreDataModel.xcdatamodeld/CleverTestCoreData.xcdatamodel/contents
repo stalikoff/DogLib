@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ImageEntity" representedClassName=".ImageEntity" syncable="YES">
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="index" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="index"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="ImageEntity" positionX="-63" positionY="-18" width="128" height="59"/>
+    </elements>
+</model>
