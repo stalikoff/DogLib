@@ -1,7 +1,7 @@
 # DogLib
 
-DogLibrary is a library that get random dog images from public API https://dog.ceo/dog-api/ and save them in local database.
-Library use Alamofire framework for network, CoreData for storage and Quick/Nimble for unit testing.
+DogLibrary is a library that gets random dog images from the public API https://dog.ceo/dog-api/ and save them in a local database.
+The library uses Alamofire framework for network, CoreData for storage and Quick/Nimble for unit testing.
 
 ## Example
 
@@ -49,8 +49,8 @@ dogLibrary.getNextImage { [weak self] result in
 dogLibrary.getPreviousImage { [weak self] result in
     DispatchQueue.main.async {
         switch result {
-            case .success(let typle):
-                self?.imageView.image = typle.image
+            case .success(let tuple):
+                self?.imageView.image = tuple.image
             case .failure(let error):
                 self?.showError(error.message)
             }
