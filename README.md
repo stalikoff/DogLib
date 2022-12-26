@@ -34,15 +34,27 @@ pod 'DogLib', :git => 'https://github.com/stalikoff/DogLib'
 ```ruby
 let dogLibrary = DogLibrary()
 
-dogLibrary.getNextImage { [weak self] image in
+dogLibrary.getNextImage { [weak self] result in
     DispatchQueue.main.async {
-        self?.imageView.image = image
+        switch result {
+            case .success(let image):
+                self?.imageView.image = image
+            case .failure(let error):
+                self?.showError(error.message)
+            }
+        }
     }
 }
 
-dogLibrary.getPreviousImage { [weak self] image, isFirst in
+dogLibrary.getPreviousImage { [weak self] result in
     DispatchQueue.main.async {
-        self?.imageView.image = image
+        switch result {
+            case .success(let typle):
+                self?.imageView.image = typle.image
+            case .failure(let error):
+                self?.showError(error.message)
+            }
+        }
     }
 }
 
