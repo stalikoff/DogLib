@@ -2,11 +2,11 @@
 Pod::Spec.new do |s|
   s.name             = 'DogLib'
   s.version          = '0.0.1'
-  s.homepage         = 'https://github.com/stalikoff/Dogs'
+  s.homepage         = 'https://github.com/stalikoff/DogLib'
   s.summary          = 'Library to load and cache random dog images from public API'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Oleg Vasilev' => 'o.vasilev@danycom.ru' }
-  s.source           = { :git => 'git@github.com:stalikoff/Dogs.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@github.com:stalikoff/DogLib.git', :tag => s.version.to_s }
   s.swift_version = '5.0'
   s.ios.deployment_target = '12.0'
   s.source_files = 'DogLib/Source/**/*.swift'
