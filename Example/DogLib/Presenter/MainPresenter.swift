@@ -30,17 +30,7 @@ extension MainPresenter: MainPresenterProtocol {
     func nextAction() {
         self.view?.setPreviousButtonHidden(false)
         view?.showLoading(true)
-        dogLibrary.getNextImage { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let image):
-                    self?.view?.showLoading(false)
-                    self?.view?.showImage(image)
-                case .failure(let error):
-                    self?.view?.showError(error.message)
-                }
-            }
-        }
+        loadNext()
     }
 
     func previousAction() {
@@ -60,6 +50,13 @@ extension MainPresenter: MainPresenterProtocol {
 
     func viewIsReady() {
         self.view?.setPreviousButtonHidden(true)
+        loadNext()
+    }
+}
+
+// MARK: - Private methods
+extension MainPresenter {
+    private func loadNext() {
         view?.showLoading(true)
         dogLibrary.getNextImage { [weak self] result in
             DispatchQueue.main.async {
