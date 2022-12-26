@@ -13,6 +13,11 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'DogLib'
+
+or
+
+pod 'DogLib', :git => 'https://github.com/stalikoff/DogLib'
+
 ```
 
 ## Author
