@@ -128,13 +128,15 @@ extension MainViewController {
 
 // MARK: - MainViewProtocol
 extension MainViewController: MainViewProtocol {
+    func showError(_ error: String) {
+        ProgressHUD.showError(error)
+    }
+
     func showLoading(_ isShow: Bool) {
-        DispatchQueue.main.async {
-            if isShow {
-                ProgressHUD.show()
-            } else {
-                ProgressHUD.dismiss()
-            }
+        if isShow {
+            ProgressHUD.show()
+        } else {
+            ProgressHUD.dismiss()
         }
     }
 

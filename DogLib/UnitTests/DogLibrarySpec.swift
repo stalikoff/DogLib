@@ -18,11 +18,13 @@ class DogLibrarySpec: QuickSpec {
             }
 
             describe("Testing next previous methods") {
-                var result: UIImage?
-
                 it("next image not nil") {
-                    library.getNextImage { image in
-                        result = image
+                    var result: UIImage?
+
+                    library.getNextImage { imageResult in
+                        if case let .success(image) = imageResult {
+                            result = image
+                        }
                     }
 
                     expect(result).toEventuallyNot(beNil(),
@@ -30,11 +32,15 @@ class DogLibrarySpec: QuickSpec {
                 }
 
                 it("previous image nil") {
-                    library.getPreviousImage { image, isFirst in
-                        result = image
+                    var dogError: DogError?
+
+                    library.getPreviousImage { imageResult in
+                        if case let .failure(error) = imageResult {
+                            dogError = error
+                        }
                     }
 
-                    expect(result).toEventually(beNil(),
+                    expect(dogError).toEventually(equal(.previousImageNilError),
                                                 timeout: DispatchTimeInterval.seconds(1))
                 }
             }
@@ -43,8 +49,8 @@ class DogLibrarySpec: QuickSpec {
                 var imagesCount = 0
 
                 it("test get one image") {
-                    library.getImage { imageData in
-                        if imageData != nil {
+                    library.getImage { imageResult in
+                        if case .success(_) = imageResult {
                             imagesCount = 1
                         }
                     }
@@ -53,8 +59,10 @@ class DogLibrarySpec: QuickSpec {
                 }
 
                 it("test get 3 images") {
-                    library.getImages(number: 3, completion: { images in
-                        imagesCount = images?.count ?? 0
+                    library.getImages(number: 3, completion: { imageResult in
+                        if case let .success(images) = imageResult {
+                            imagesCount = images.count
+                        }
                     })
                     expect(imagesCount).toEventually(equal(3),
                                                 timeout: DispatchTimeInterval.seconds(5))

@@ -21,7 +21,7 @@ public final class DogLibrary {
     }
 
     /// Loads a random dog image from the API and saves to the database
-    public func getImage(completion: @escaping (Data?) -> ()) {
+    public func getImage(completion: @escaping (Result<Data, DogError>) -> ()) {
         networkManager.loadRandomDog { [weak self, currentImageIndex] result in
             switch result {
             case .success(let response):
@@ -29,22 +29,22 @@ public final class DogLibrary {
                     self?.networkManager.getImageData(from: url, completion: { imageData, response, error in
                         if let imageData = imageData {
                             self?.databaseManager.saveImageData(imageData, atIndex: currentImageIndex)
-                            completion(imageData)
+                            completion(.success(imageData))
                             return
                         }
                     })
                 } else {
-                    completion(nil)
+                    completion(.failure(.mappingError))
                 }
 
             case .failure(_):
-                completion(nil)
+                completion(.failure(.networkError))
             }
         }
     }
 
     /// Loads number of a random dog images from the API and saves to the database
-    public func getImages(number: Int, completion: @escaping ([Data]?) -> ()) {
+    public func getImages(number: Int, completion: @escaping (Result<[Data], DogError>) -> ()) {
         networkManager.loadRandomDogs(count: number) { [weak self] result in
             switch result {
             case .success(let response):
@@ -57,44 +57,54 @@ public final class DogLibrary {
 
                 if !imageDatas.isEmpty {
                     self?.databaseManager.saveImageDatas(imageDatas, startIndex: self?.currentImageIndex ?? 0)
-                    completion(imageDatas)
+                    completion(.success(imageDatas))
                 } else {
-                    completion(nil)
+                    completion(.failure(.networkError))
                 }
 
             case .failure(_):
-                completion(nil)
+                completion(.failure(.networkError))
             }
         }
     }
 
     /// Returns the previous dog image
-    public func getPreviousImage(completion: @escaping (UIImage?, Bool) -> Void) {
+    public func getPreviousImage(completion: @escaping (Result<(image: UIImage, isFirst: Bool), DogError>) -> Void) {
+        if currentImageIndex <= 0 {
+            completion(.failure(.previousImageNilError))
+            return
+        }
+
         currentImageIndex -= 1
         databaseManager.getImage(atIndex: currentImageIndex) { [weak self] imageData in
             guard let strongSelf = self else { return }
             let isFirst = strongSelf.currentImageIndex == 0
-
             if let imageData = imageData, let image = UIImage(data: imageData) {
-                completion(image, isFirst)
+                completion(.success((image, isFirst)))
             } else {
-                completion(nil, isFirst)
+                completion(.failure(.mappingError))
             }
         }
     }
 
     /// Returns the next dog image from Database or load it from API
-    public func getNextImage(completion: @escaping (UIImage?) -> Void) {
+    public func getNextImage(completion: @escaping (Result<UIImage, DogError>) -> Void) {
         currentImageIndex += 1
         databaseManager.getImage(atIndex: currentImageIndex) { [weak self] imageData in
             if let imageData = imageData, let image = UIImage(data: imageData) {
-                completion(image)
+                completion(.success(image))
             } else {
-                self?.getImage(completion: { imageData in
-                    if let imageData = imageData {
-                        completion(UIImage(data: imageData))
-                    } else {
-                        completion(nil)
+                self?.getImage(completion: { result in
+                    switch result {
+                    case .success(let data):
+                        if let image = UIImage(data: data) {
+                            completion(.success(image))
+                        } else {
+                            completion(.failure(.mappingError))
+                        }
+
+                    case .failure(let error):
+                        completion(.failure(error))
                     }
                 })
             }

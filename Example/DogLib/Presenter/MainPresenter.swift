@@ -30,24 +30,30 @@ extension MainPresenter: MainPresenterProtocol {
     func nextAction() {
         self.view?.setPreviousButtonHidden(false)
         view?.showLoading(true)
-        dogLibrary.getNextImage { [weak self] image in
+        dogLibrary.getNextImage { [weak self] result in
             DispatchQueue.main.async {
-                self?.view?.showLoading(false)
-
-                if let image = image {
+                switch result {
+                case .success(let image):
+                    self?.view?.showLoading(false)
                     self?.view?.showImage(image)
+                case .failure(let error):
+                    self?.view?.showError(error.message)
                 }
             }
         }
     }
 
     func previousAction() {
-        dogLibrary.getPreviousImage{ [weak self] image, isFirst in
+        dogLibrary.getPreviousImage{ [weak self] result in
             DispatchQueue.main.async {
-                if let image = image {
-                    self?.view?.showImage(image)
+                switch result {
+                case .success(let typle):
+                    self?.view?.showImage(typle.image)
+                    self?.view?.setPreviousButtonHidden(typle.isFirst)
+
+                case .failure(let error):
+                    self?.view?.showError(error.message)
                 }
-                self?.view?.setPreviousButtonHidden(isFirst)
             }
         }
     }
@@ -55,12 +61,14 @@ extension MainPresenter: MainPresenterProtocol {
     func viewIsReady() {
         self.view?.setPreviousButtonHidden(true)
         view?.showLoading(true)
-        dogLibrary.getNextImage { [weak self] image in
+        dogLibrary.getNextImage { [weak self] result in
             DispatchQueue.main.async {
-                self?.view?.showLoading(false)
-                
-                if let image = image {
+                switch result {
+                case .success(let image):
+                    self?.view?.showLoading(false)
                     self?.view?.showImage(image)
+                case .failure(let error):
+                    self?.view?.showError(error.message)
                 }
             }
         }
