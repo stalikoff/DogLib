@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DogLib'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.homepage         = 'https://github.com/stalikoff/DogLib'
   s.summary          = 'Library to load and cache random dog images from public API'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
