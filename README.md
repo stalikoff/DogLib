@@ -9,6 +9,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 Example project use MVP architecture pattern.
 
+![Simulator Screen Shot](https://user-images.githubusercontent.com/9357445/209521480-d35edf91-42ff-491d-a88d-ace38878f46b.png)
 
 ## Requirements
 
